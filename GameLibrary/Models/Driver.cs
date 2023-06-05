@@ -5,7 +5,6 @@
         public string Name { get; set; }
         public int Fatigue { get; set; }
         public Car Cars { get; set; }
-
         public Driver()
         {
             Name = "John Doe";

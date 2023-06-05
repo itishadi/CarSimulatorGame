@@ -1,6 +1,4 @@
-﻿// CarSimulatorGame/CarSimulator.cs
-
-using GameLibrary.Models;
+﻿using GameLibrary.Models;
 using GameLibrary.Services;
 using System;
 
@@ -109,7 +107,6 @@ namespace CarSimulatorGame
                 }
             }
         }
-
         public static void Main(string[] args)
         {
             CarSimulator simulator = new CarSimulator();

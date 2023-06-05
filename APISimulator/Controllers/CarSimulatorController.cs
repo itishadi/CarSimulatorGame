@@ -11,12 +11,10 @@ namespace APISimulator.Controllers
     public class CarSimulatorController : ControllerBase
     {
         private readonly ICarSimulatorService carSimulatorService;
-
         public CarSimulatorController(ICarSimulatorService carSimulatorService)
         {
             this.carSimulatorService = carSimulatorService;
         }
-
         [HttpGet]
         public IActionResult Get()
         {

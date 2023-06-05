@@ -4,7 +4,6 @@
     {
         public string Direction { get; set; }
         public int Fuel { get; set; }
-
         public Car()
         {
             Direction = "Norrut";

@@ -5,7 +5,6 @@ namespace GameLibrary.Services
     public class CarSimulatorService : ICarSimulatorService
     {
         private readonly Driver driver;
-
         public CarSimulatorService()
         {
             driver = new Driver
@@ -19,7 +18,6 @@ namespace GameLibrary.Services
                 }
             };
         }
-
         public Driver GetDriver()
         {
             return driver;
