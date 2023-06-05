@@ -45,12 +45,47 @@ namespace CarSimulatorGame
 
                 Console.WriteLine(output);
 
+                if (driver.Fatigue >= 10)
+                {
+                    Console.Clear();
+                    Console.WriteLine("*--------------------------------------------------------------*");
+                    Console.WriteLine("Föraren är trött du måste ta en rast.");
+                    Console.WriteLine("*--------------------------------------------------------------*");
+                    Console.WriteLine("1: Ta rast");
+                    Console.WriteLine("2: Eller tyrck vad du vill sen ENTER att avsluta!");
+                    Console.WriteLine("*--------------------------------------------------------------*");
+                    Console.Write("Ange ett kommando: ");
+                    string fuelCommand = Console.ReadLine();
+
+                    if (fuelCommand == "1")
+                    {
+                        commandService.ExecuteCommand("5");
+                    }
+                    else
+                    {
+                        isRunning = false;
+                    }
+                }
+                else if (driver.Fatigue == 9)
+                {
+                    Console.WriteLine("*--------------------------------------------------------------*");
+                    Console.WriteLine("Föraren håller på att sova. Ta rast!");
+                }
+                else if (input.ToLower() == "7" || input.ToLower() == "avsluta")
+                {
+                    isRunning = false;
+                }
+
+
                 if (car.Fuel <= 0)
                 {
+                    Console.Clear();
+                    Console.WriteLine("*--------------------------------------------------------------*");
                     Console.WriteLine("Bilen har inte tillräckligt med bensin.");
+                    Console.WriteLine("*--------------------------------------------------------------*");
                     Console.WriteLine("1: Tanka");
-                    Console.WriteLine("2: Avsluta!");
-
+                    Console.WriteLine("2: Eller tyrck vad du vill sen ENTER att avsluta!");
+                    Console.WriteLine("*--------------------------------------------------------------*");
                     Console.Write("Ange ett kommando: ");
                     string fuelCommand = Console.ReadLine();
 
@@ -66,7 +101,7 @@ namespace CarSimulatorGame
                 else if (car.Fuel == 1)
                 {
                     Console.WriteLine("*--------------------------------------------------------------*");
-                    Console.WriteLine("Bensinnivån är låg. Tanka snart!");
+                    Console.WriteLine("Bensinnivån är låg. Tanka bilen!");
                 }
                 else if (input.ToLower() == "7" || input.ToLower() == "avsluta")
                 {
