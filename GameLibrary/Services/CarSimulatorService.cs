@@ -11,6 +11,7 @@ namespace GameLibrary.Services
             {
                 Name = "John Doe",
                 Fatigue = 1,
+                Hunger = Hunger.Full,
                 Cars = new Car
                 {
                     Direction = "Norrut, spelet startas alltid norrut!",
