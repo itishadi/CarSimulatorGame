@@ -181,10 +181,15 @@ namespace CarSimulatorGame
                         isRunning = false;
                     }
                 }
+                else if (driver.Fatigue == 7 || driver.Fatigue == 8)
+                {
+                    Console.WriteLine("*--------------------------------------------------------------*");
+                    Console.WriteLine("Föraren är hungrig Ta en rast!");
+                }
                 else if (driver.Fatigue == 9)
                 {
                     Console.WriteLine("*--------------------------------------------------------------*");
-                    Console.WriteLine("Föraren håller på att somna. Ta en rast!");
+                    Console.WriteLine("Föraren är trött och hungrig. Ta en rast!");
                 }
                 else if (input.ToLower() == "7" || input.ToLower() == "avsluta")
                 {
@@ -224,6 +229,7 @@ namespace CarSimulatorGame
                 }
             }
         }
+
 
         public static void Main(string[] args)
         {

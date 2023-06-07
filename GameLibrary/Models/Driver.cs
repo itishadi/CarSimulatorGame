@@ -17,8 +17,10 @@ namespace GameLibrary.Models
     public enum Hunger
     {
         Full = 0,
-        Hungry = 1,
-        VeryHungry = 2
+        NotHungry = 1,
+        SoonHungry = 2,
+        Hungry = 3,
+        VeryHungry = 4
     }
 
     public class Driver

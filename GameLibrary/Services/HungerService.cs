@@ -4,32 +4,40 @@ namespace GameLibrary.Services
 {
     public class HungerService
     {
-        private Driver driver;
+        private Driver _driver;
 
         public HungerService(Driver driver)
         {
-            this.driver = driver;
+            _driver = driver;
         }
 
         public void IncreaseHunger()
         {
-            switch (driver.Hunger)
+            switch (_driver.Hunger)
             {
                 case Hunger.Full:
-                    driver.Hunger = Hunger.Hungry;
+                    _driver.Hunger = Hunger.NotHungry;
                     break;
+                case Hunger.NotHungry:
+                    _driver.Hunger = Hunger.SoonHungry;
+                    break;
+
+                case Hunger.SoonHungry:
+                    _driver.Hunger = Hunger.Hungry;
+                    break;
+
                 case Hunger.Hungry:
-                    driver.Hunger = Hunger.VeryHungry;
+                    _driver.Hunger = Hunger.VeryHungry;
                     break;
                 case Hunger.VeryHungry:
-                    driver.Hunger = Hunger.VeryHungry;
+                    _driver.Hunger = Hunger.VeryHungry;
                     break;
             }
         }
 
         public void ResetHunger()
         {
-            driver.Hunger = Hunger.Full;
+            _driver.Hunger = Hunger.Full;
         }
     }
 }
