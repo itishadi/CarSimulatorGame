@@ -33,19 +33,14 @@ namespace CarSimulatorGameTest.Services
 
             Assert.AreEqual(expectedOutput, actualOutput);
         }
-
-
         [TestMethod]
         public void TurnLeft_ShouldChangeCarDirectionToWest_WhenCurrentDirectionIsNorth()
         {
-            // Arrange
             car.Direction = "Norrut";
             string expectedDirection = "Västerut";
 
-            // Act
             InvokePrivateMethod(sut, "TurnLeft");
 
-            // Assert
             Assert.AreEqual(expectedDirection, car.Direction);
         }
 
@@ -59,14 +54,11 @@ namespace CarSimulatorGameTest.Services
         [TestMethod]
         public void TurnRight_ShouldChangeCarDirectionToEast_WhenCurrentDirectionIsNorth()
         {
-            // Arrange
             car.Direction = "Norrut";
             string expectedDirection = "Österut";
 
-            // Act
             InvokePrivateMethod1(sut, "TurnRight");
 
-            // Assert
             Assert.AreEqual(expectedDirection, car.Direction);
         }
 
@@ -75,8 +67,6 @@ namespace CarSimulatorGameTest.Services
             var method = obj.GetType().GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
             method.Invoke(obj, null);
         }
-
-
 
     }
 }

@@ -10,7 +10,6 @@ namespace GameLibrary.Services
         {
             _driver = driver;
         }
-
         public void IncreaseHunger()
         {
             switch (_driver.Hunger)
