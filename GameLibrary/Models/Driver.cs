@@ -12,6 +12,7 @@
     public class Driver
     {
         public string Name { get; set; }
+        public int Age { get; set; }
         public int Fatigue { get; set; }
         public Car Cars { get; set; }
         public Hunger Hunger { get; set; }
@@ -19,6 +20,7 @@
         public Driver()
         {
             Name = "John Doe";
+            Age = 35;
             Fatigue = 0;
             Hunger = Hunger.Full;
         }

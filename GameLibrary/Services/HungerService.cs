@@ -2,7 +2,7 @@
 
 namespace GameLibrary.Services
 {
-    public class HungerService
+    public class HungerService : IHungerService
     {
         private Driver _driver;
 

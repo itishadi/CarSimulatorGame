@@ -1,26 +1,33 @@
 ﻿using GameLibrary.Models;
 using GameLibrary.Services;
 using System;
+using System.Text.Json;
+using System.Net.Http;
+using System.Threading.Tasks;
+using GameLibrary.APIModels;
 
 namespace CarSimulatorGame
 {
-    internal class CarSimulator
+    public class CarSimulator
     {
         private Driver driver;
         private Car car;
         private CommandService commandService;
+        private ApiService apiService;
 
         public CarSimulator()
         {
             driver = new Driver();
             car = new Car();
             commandService = new CommandService(driver, car);
+            apiService = new ApiService();
         }
 
-        public void Start()
+        public async Task Start()
         {
-            Console.WriteLine("Välkommen till Car Simulator!");
 
+            Console.WriteLine("Välkommen till Car Simulator!");
+            await apiService.GetAsync();
             bool isRunning = true;
 
             while (isRunning)
@@ -110,13 +117,8 @@ namespace CarSimulatorGame
                 {
                     isRunning = false;
                 }
-            }
-        }
 
-        public static void Main(string[] args)
-        {
-            CarSimulator simulator = new CarSimulator();
-            simulator.Start();
+            }
         }
     }
 }
