@@ -22,18 +22,15 @@ namespace GameLibrary.Services
                     {
                         var jsonString = await response.Content.ReadAsStringAsync();
 
-                        // Deserialize the JSON response
                         var apiResponse = JsonSerializer.Deserialize<ApiResponse>(jsonString);
 
                         if (apiResponse?.results?.Length > 0)
                         {
                             var result = apiResponse.results[0];
 
-                            // Extract the required information
                             string name = $"{result.name.first} {result.name.last}";
                             int age = result.dob.age;
 
-                            // Print the extracted information
                             Console.WriteLine($"Driver: {name}");
                             Console.WriteLine($"Age: {age}");
                         }

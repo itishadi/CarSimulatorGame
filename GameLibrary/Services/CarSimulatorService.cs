@@ -10,6 +10,7 @@ namespace GameLibrary.Services
             driver = new Driver
             {
                 Name = "John Doe",
+                Age = 35,
                 Fatigue = 1,
                 Hunger = Hunger.Full,
                 Cars = new Car

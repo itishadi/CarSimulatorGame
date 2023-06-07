@@ -1,5 +1,4 @@
-﻿using CarSimulatorGame;
-using GameLibrary.Services;
+﻿using GameLibrary.Services;
 using System.Runtime.CompilerServices;
 
 class Program
