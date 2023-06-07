@@ -34,7 +34,6 @@ namespace GameLibrary.Services
                     break;
             }
         }
-
         public void ResetHunger()
         {
             _driver.Hunger = Hunger.Full;
