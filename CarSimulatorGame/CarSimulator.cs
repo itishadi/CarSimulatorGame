@@ -148,7 +148,26 @@ public class CarSimulator
 
     public async Task Start()
     {
+        while (true) { 
+        Console.Clear();
+        Console.WriteLine("Welcome to Car Simulator!");
+        Console.WriteLine("1: Start Game");
+        Console.WriteLine("2: End");
+        var answer = Console.ReadLine();
+        if (answer == "1")
+        {
         await menuService.Start();
+        }
+        else if (answer == "2")
+        {
+                break;
+        }
+        else
+        {
+            Console.WriteLine("Wrong answer, try again!");
+        }
+            break;
+        }
     }
 }
 

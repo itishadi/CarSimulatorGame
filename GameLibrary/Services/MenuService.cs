@@ -13,6 +13,7 @@ namespace GameLibrary.Services
         private Car car;
         private CommandService commandService;
         private ApiService apiService;
+        private bool isRunning;
 
         public MenuService(Driver driver, Car car, CommandService commandService, ApiService apiService)
         {
@@ -24,79 +25,31 @@ namespace GameLibrary.Services
 
         public async Task Start()
         {
-
-            Console.WriteLine("Välkommen till Car Simulator!");
+            Console.Clear();
+            Console.WriteLine("Welcome to Car Simulator!");
             await apiService.GetAsync();
             bool isRunning = true;
 
             while (isRunning)
             {
-                Console.WriteLine("*--------------------------------------------------------------*");
-                Console.WriteLine("1: Sväng Vänster");
-                Console.WriteLine("2: Sväng Höger");
-                Console.WriteLine("3: Kör framåt");
-                Console.WriteLine("4: Backa");
-                Console.WriteLine("5: Ta rast");
-                Console.WriteLine("6: Tanka");
-                Console.WriteLine("7: Avsluta!");
+                Console.WriteLine("\n*--------------------------------------------------------------*");
+                Console.WriteLine("\n1: Turn left");
+                Console.WriteLine("2: Turn right");
+                Console.WriteLine("3: Drive forward");
+                Console.WriteLine("4: Reverse");
+                Console.WriteLine("5: Take a break");
+                Console.WriteLine("6: Refuel");
+                Console.WriteLine("7: Menu!");
 
-                Console.WriteLine("*--------------------------------------------------------------*");
-                Console.Write("Ange ett kommando: ");
+                Console.WriteLine("\n*--------------------------------------------------------------*");
+                Console.Write("Enter a command: ");
                 string input = Console.ReadLine();
                 string output = commandService.ExecuteCommand(input);
 
                 Console.Clear();
 
                 Console.WriteLine(output);
-
-                if (driver.Fatigue >= 10)
-                {
-                    Console.Clear();
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("*--------------------------------------------------------------*");
-                    Console.WriteLine("Föraren är trött hungig du måste ta en rast.");
-                    Console.WriteLine("*--------------------------------------------------------------*");
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Clear();
-                    Console.WriteLine("1: Ta rast");
-                    Console.WriteLine("2: Eller tryck vad du vill och sedan ENTER för att avsluta!");
-                    Console.WriteLine("*--------------------------------------------------------------*");
-                    Console.Write("Ange ett kommando: ");
-                    string fatigueCommand = Console.ReadLine();
-
-                    if (fatigueCommand == "1")
-                    {
-                        commandService.ExecuteCommand("5");
-                    }
-                    else
-                    {
-                        isRunning = false;
-                    }
-                }
-                else if (driver.Fatigue == 7 || driver.Fatigue == 8)
-                {
-                    Console.WriteLine("*--------------------------------------------------------------*");
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Föraren är hungrig Ta en rast!");
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    Console.ForegroundColor = ConsoleColor.White;
-                }
-                else if (driver.Fatigue == 9)
-                {
-                    Console.WriteLine("*--------------------------------------------------------------*");
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Föraren är trött och hungrig. Ta en rast!");
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    Console.ForegroundColor = ConsoleColor.White;
-                }
-                else if (input.ToLower() == "7" || input.ToLower() == "avsluta")
-                {
-                    isRunning = false;
-                }
+                Fatigue(input);
 
 
                 if (car.Fuel <= 0)
@@ -105,12 +58,12 @@ namespace GameLibrary.Services
                     Console.WriteLine("*--------------------------------------------------------------*");
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Bilen har inte tillräckligt bensin.");
+                    Console.WriteLine("\nThe car does not have enough gas.\n");
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("*--------------------------------------------------------------*");
-                    Console.WriteLine("1: Tanka");
-                    Console.WriteLine("2: Eller tryck vad du vill och sedan ENTER för att avsluta!");
+                    Console.WriteLine("\n1: Refuel");
+                    Console.WriteLine("2: Or press whatever you want and then ENTER to exit!\n");
                     Console.WriteLine("*--------------------------------------------------------------*");
                     Console.Write("Ange ett kommando: ");
                     string fuelCommand = Console.ReadLine();
@@ -130,15 +83,69 @@ namespace GameLibrary.Services
                     Console.WriteLine("*--------------------------------------------------------------*");
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Bensinnivån är låg. Tanka bilen!");
+                    Console.WriteLine("\nThe fuel level is low. Refuel the car!");
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.ForegroundColor = ConsoleColor.White;
                 }
-                else if (input.ToLower() == "7" || input.ToLower() == "avsluta")
+                else if (input.ToLower() == "7" || input.ToLower() == "Menu")
                 {
                     isRunning = false;
                 }
 
+            }
+        }
+        public void Fatigue(string input)
+        {
+            if (driver.Fatigue >= 10)
+            {
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("*--------------------------------------------------------------*");
+                Console.WriteLine("\nThe driver is tired and hungry, you must take a break.\n");
+                Console.WriteLine("*--------------------------------------------------------------*");
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Clear();
+                Console.WriteLine("\n1: Take a break");
+                Console.WriteLine("2: Or press whatever you want and then ENTER to exit!");
+                Console.WriteLine("*--------------------------------------------------------------*");
+
+                Console.Write("\nEnter a command: ");
+                string fatigueCommand = Console.ReadLine();
+                Console.Clear();
+
+
+                if (fatigueCommand == "1")
+                {
+                    commandService.ExecuteCommand("5");
+                }
+                else
+                {
+                    isRunning = false;
+                }
+            }
+            else if (driver.Fatigue == 7 || driver.Fatigue == 8)
+            {
+                Console.WriteLine("*--------------------------------------------------------------*");
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nThe driver is hungry Take a break!");
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else if (driver.Fatigue == 9)
+            {
+                Console.WriteLine("*--------------------------------------------------------------*");
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nThe driver is tired and hungry. Take a break!");
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else if (input.ToLower() == "7" || input.ToLower() == "End")
+            {
+                isRunning = false;
             }
         }
     }

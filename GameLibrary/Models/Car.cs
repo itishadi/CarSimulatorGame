@@ -6,7 +6,7 @@
         public int Fuel { get; set; }
         public Car()
         {
-            Direction = "Norrut";
+            Direction = "Northward";
             Fuel = 20;
         }
     }

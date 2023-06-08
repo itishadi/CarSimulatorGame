@@ -23,96 +23,96 @@ namespace GameLibrary.Services
             switch (input.ToLower())
             {
                 case "1":
-                case "sväng vänster":
+                case "turn left":
                     if (_car.Fuel >= 1)
                     {
                         _car.Fuel -= 1;
                         TurnLeft();
-                        output = "Bilföraren svänger vänster.";
+                        output = "The car driver turns left.";
                         _driver.IncreaseFatigue();
                         hungerService.IncreaseHunger();
                     }
                     else
                     {
-                        output = "Bilen har inte tillräckligt med bensin för att köra framåt.";
+                        output = "The car does not have enough gas to drive forward.";
                     }
                     break;
 
                 case "2":
-                case "sväng höger":
+                case "turn right":
                     if (_car.Fuel >= 1)
                     {
                         _car.Fuel -= 1;
                         TurnRight();
-                        output = "Bilföraren svänger höger.";
+                        output = "The car driver turns right.";
                         _driver.IncreaseFatigue();
                         hungerService.IncreaseHunger();
                     }
                     else
                     {
-                        output = "Bilen har inte tillräckligt med bensin för att köra framåt.";
+                        output = "The car does not have enough gas to drive forward.";
                     }
                     break;
 
                 case "3":
-                case "köra framåt":
+                case "drive forward":
                     if (_car.Fuel >= 1)
                     {
                         _car.Fuel -= 1;
 
-                        output = "Bilföraren kör framåt.";
+                        output = "The car driver drives forward.";
                         _driver.IncreaseFatigue();
                         hungerService.IncreaseHunger();
                     }
                     else
                     {
-                        output = "Bilen har inte tillräckligt med bensin för att köra framåt.";
+                        output = "The car does not have enough gas to drive forward.";
                     }
                     break;
 
                 case "4":
-                case "backa":
+                case "Reverse":
                     if (_car.Fuel >= 1)
                     {
                         _car.Fuel -= 1;
 
-                        output = "Bilföraren backar.";
+                        output = "The driver reverses.";
                         _driver.IncreaseFatigue();
                         hungerService.IncreaseHunger();
                     }
                     else
                     {
-                        output = "Bilen har inte tillräckligt med bensin för att köra framåt.";
+                        output = "The car does not have enough gas to drive forward.";
                     }
                     break;
 
                 case "5":
-                case "rasta":
+                case "rest":
                     _driver.Fatigue = 1;
-                    output = "Bilföraren tar en paus och vilar.";
+                    output = "The car driver takes a break and rests.";
                     hungerService.ResetHunger();
                     break;
 
                 case "6":
-                case "tanka bilen":
+                case "refuel the car":
                     _car.Fuel = 20;
-                    output = "Bilen har tankats.";
+                    output = "The car has been refueled.";
                     break;
 
                 case "7":
-                case "avsluta":
-                    output = "Spelet avslutas.";
+                case "end":
+                    output = "The game ends.";
                     break;
 
                 default:
-                    output = "Ogiltigt kommando. Försök igen.";
+                    output = "Invalid command. Try again.";
                     break;
             }
 
-            output += $"\nBilens riktning: {_car.Direction}";
-            output += $"\nBensin: {_car.Fuel}/20";
-            output += $"\nFörarens trötthet: {_driver.Fatigue}/10";
-            output += $"\nFörarens hunger: {_driver.Hunger}";
+            output += $"\nThe direction of the car: {_car.Direction}";
+            output += $"\nGas: {_car.Fuel}/20";
+            output += $"\nDriver fatigue: {_driver.Fatigue}/10";
+            output += $"\nDriver's hunger: {_driver.Hunger}";
 
             return output;
         }
@@ -121,20 +121,20 @@ namespace GameLibrary.Services
         {
             switch (_car.Direction)
             {
-                case "Norrut":
-                    _car.Direction = "Västerut";
+                case "Northward":
+                    _car.Direction = "West";
                     break;
 
-                case "Söderut":
-                    _car.Direction = "Österut";
+                case "Southward":
+                    _car.Direction = "East";
                     break;
 
-                case "Västerut":
-                    _car.Direction = "Söderut";
+                case "West":
+                    _car.Direction = "Southward";
                     break;
 
-                case "Österut":
-                    _car.Direction = "Norrut";
+                case "East":
+                    _car.Direction = "Northward";
                     break;
             }
         }
@@ -143,20 +143,20 @@ namespace GameLibrary.Services
         {
             switch (_car.Direction)
             {
-                case "Norrut":
-                    _car.Direction = "Österut";
+                case "Northward":
+                    _car.Direction = "East";
                     break;
 
-                case "Söderut":
-                    _car.Direction = "Västerut";
+                case "Southward":
+                    _car.Direction = "West";
                     break;
 
-                case "Västerut":
-                    _car.Direction = "Norrut";
+                case "West":
+                    _car.Direction = "Northward";
                     break;
 
-                case "Österut":
-                    _car.Direction = "Söderut";
+                case "East":
+                    _car.Direction = "Southward";
                     break;
             }
         }
