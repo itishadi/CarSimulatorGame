@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameLibrary.Services
 {
-    
+
     public class MenuService : IMenuService
     {
         public bool isRunning { get; set; } = true;
@@ -15,17 +15,19 @@ namespace GameLibrary.Services
         private Car car;
         private CommandService commandService;
         private ApiService apiService;
+        private FuelService fuelService;
         private FatigueService fatigueService;
 
-        public MenuService(Driver driver, Car car, CommandService commandService, ApiService apiService, FatigueService fatigueService)
+        public MenuService(Driver driver, Car car, CommandService commandService, ApiService apiService, FatigueService fatigueService, FuelService fuelService)
         {
             this.driver = driver;
             this.car = car;
             this.commandService = commandService;
             this.apiService = apiService;
             this.fatigueService = fatigueService;
-
+            this.fuelService = fuelService;
         }
+
 
         public async Task Start()
         {
@@ -52,50 +54,15 @@ namespace GameLibrary.Services
                 Console.Clear();
                 Console.WriteLine(output);
                 fatigueService.Fatigue(input);
-                Fuel(input);
-            }
-        }
-
-        public void Fuel(string input)
-        {
-            if (car.Fuel <= 0)
-            {
-                Console.Clear();
-                Console.WriteLine("*--------------------------------------------------------------*");
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\nThe car does not have enough gas.\n");
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("*--------------------------------------------------------------*");
-                Console.WriteLine("\n1: Refuel");
-                Console.WriteLine("2: Or press whatever you want and then ENTER to exit!\n");
-                Console.WriteLine("*--------------------------------------------------------------*");
-                Console.Write("Ange ett kommando: ");
-                string fuelCommand = Console.ReadLine();
-                Console.Clear();
-
-                if (fuelCommand == "1")
-                {
-                    commandService.ExecuteCommand("6");
-                }
-                else
+                fuelService.Fuel(input);
+                if(input == "7")
                 {
                     isRunning = false;
                 }
-            }
-            else if (car.Fuel == 1)
-            {
-                Console.WriteLine("*--------------------------------------------------------------*");
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\nThe fuel level is low. Refuel the car!");
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-            else if (input.ToLower() == "7" || input.ToLower() == "End")
-            {
-                isRunning = false;
+                else if(input != "1" && input != "2" && input != "3" && input != "4" && input != "5" && input != "6") 
+                {
+                    Console.WriteLine("Try again!");
+                }
             }
         }
     }
