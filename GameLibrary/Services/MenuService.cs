@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace GameLibrary.Services
 {
-
     public class MenuService : IMenuService
     {
         public bool isRunning { get; set; } = true;
@@ -27,7 +26,6 @@ namespace GameLibrary.Services
             this.fatigueService = fatigueService;
             this.fuelService = fuelService;
         }
-
         public async Task Start()
         {
             Console.Clear();

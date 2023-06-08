@@ -24,7 +24,6 @@ public class CarSimulator
         menuService = new MenuService(driver, car, commandService, apiService, fatigueService, fuelService);
     }
 
-
     public async Task StartMenu()
     {
         await menuService.Start();
