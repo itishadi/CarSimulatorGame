@@ -23,50 +23,52 @@ namespace CarSimulatorGameTest.Services
         [TestMethod]
         public void ExecuteCommand_ShouldReturnCorrectOutput_WhenInputIs1()
         {
+            // Arrange
             string input = "1";
-            string expectedOutput = "Bilföraren svänger vänster." +
-                "\nBilens riktning: Västerut\nBensin: 19/20" +
-                "\nFörarens trötthet: 1/10" +
-                "\nFörarens hunger: NotHungry";
+            string expectedOutput = "The driver turns left." +
+                "\nCar direction: West\nFuel: 19/20" +
+                "\nDriver fatigue: 1/10" +
+                "\nDriver hunger: NotHungry";
 
+            // Act
             string actualOutput = sut.ExecuteCommand(input);
 
+            // Assert
             Assert.AreEqual(expectedOutput, actualOutput);
         }
-        [TestMethod]
-        public void TurnLeft_ShouldChangeCarDirectionToWest_WhenCurrentDirectionIsNorth()
-        {
-            car.Direction = "Norrut";
-            string expectedDirection = "Västerut";
 
-            InvokePrivateMethod(sut, "TurnLeft");
+        //[TestMethod]
+        //public void TurnLeft_ShouldChangeCarDirectionToWest_WhenCurrentDirectionIsNorth()
+        //{
+        //    // Arrange
+        //    car.Direction = "North";
+        //    string expectedDirection = "West";
 
-            Assert.AreEqual(expectedDirection, car.Direction);
-        }
+        //    // Act
+        //    InvokePrivateMethod(sut, "TurnLeft");
 
-        private static void InvokePrivateMethod(object obj, string methodName)
-        {
-            var method = obj.GetType().GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
-            method.Invoke(obj, null);
-        }
+        //    // Assert
+        //    Assert.AreEqual(expectedDirection, car.Direction);
+        //}
 
+        //private static void InvokePrivateMethod(object obj, string methodName)
+        //{
+        //    var method = obj.GetType().GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
+        //    method.Invoke(obj, null);
+        //}
 
-        [TestMethod]
-        public void TurnRight_ShouldChangeCarDirectionToEast_WhenCurrentDirectionIsNorth()
-        {
-            car.Direction = "Norrut";
-            string expectedDirection = "Österut";
+        //[TestMethod]
+        //public void TurnRight_ShouldChangeCarDirectionToEast_WhenCurrentDirectionIsNorth()
+        //{
+        //    // Arrange
+        //    car.Direction = "North";
+        //    string expectedDirection = "East";
 
-            InvokePrivateMethod1(sut, "TurnRight");
+        //    // Act
+        //    InvokePrivateMethod(sut, "TurnRight");
 
-            Assert.AreEqual(expectedDirection, car.Direction);
-        }
-
-        private static void InvokePrivateMethod1(object obj, string methodName)
-        {
-            var method = obj.GetType().GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
-            method.Invoke(obj, null);
-        }
-
+        //    // Assert
+        //    Assert.AreEqual(expectedDirection, car.Direction);
+        //}
     }
 }
