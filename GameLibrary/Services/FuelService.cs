@@ -28,7 +28,7 @@ namespace GameLibrary.Services
         {
             if (car.Fuel <= 0)
             {
-                Console.Clear();
+                //Console.Clear();
                 Console.WriteLine("*--------------------------------------------------------------*");
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.Red;

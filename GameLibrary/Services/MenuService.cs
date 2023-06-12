@@ -33,9 +33,9 @@ namespace GameLibrary.Services
             Console.WriteLine("1: Start");
             Console.WriteLine("2: End");
             var answer = Console.ReadLine();
+                Console.Clear();
             if (answer == "1")
             {
-                Console.Clear();
                 await apiService.GetAsync();
 
                 while (isRunning)

@@ -23,85 +23,61 @@ namespace GameLibrary.Services
             switch (input.ToLower())
             {
                 case "1":
-                case "turn left":
                     if (_car.Fuel >= 1)
                     {
                         _car.Fuel -= 1;
                         TurnLeft();
-                        output = "The car driver turns left.";
                         _driver.IncreaseFatigue();
                         hungerService.IncreaseHunger();
-                    }
-                    else
-                    {
-                        output = "The car does not have enough gas to drive forward.";
                     }
                     break;
 
                 case "2":
-                case "turn right":
                     if (_car.Fuel >= 1)
                     {
                         _car.Fuel -= 1;
                         TurnRight();
-                        output = "The car driver turns right.";
                         _driver.IncreaseFatigue();
                         hungerService.IncreaseHunger();
-                    }
-                    else
-                    {
-                        output = "The car does not have enough gas to drive forward.";
                     }
                     break;
 
                 case "3":
-                case "drive forward":
                     if (_car.Fuel >= 1)
                     {
                         _car.Fuel -= 1;
 
-                        output = "The car driver drives forward.";
                         _driver.IncreaseFatigue();
                         hungerService.IncreaseHunger();
-                    }
-                    else
-                    {
-                        output = "The car does not have enough gas to drive forward.";
                     }
                     break;
 
                 case "4":
-                case "Reverse":
                     if (_car.Fuel >= 1)
                     {
                         _car.Fuel -= 1;
 
-                        output = "The driver reverses.";
                         _driver.IncreaseFatigue();
                         hungerService.IncreaseHunger();
-                    }
-                    else
-                    {
-                        output = "The car does not have enough gas to drive forward.";
                     }
                     break;
 
                 case "5":
-                case "rest":
                     _driver.Fatigue = 1;
-                    output = "The car driver takes a break and rests.";
                     hungerService.ResetHunger();
                     break;
 
                 case "6":
-                case "refuel the car":
                     _car.Fuel = 20;
-                    output = "The car has been refueled.";
+                    Console.WriteLine(
+                        output += $"\nThe direction of the car: {_car.Direction}" +
+                        $"\nGas: {_car.Fuel}/20 " +
+                        $"\nDriver fatigue: {_driver.Fatigue}/10 " +
+                        $"\nDriver's hunger: {_driver.Hunger}"
+                        );
                     break;
 
                 case "7":
-                case "end":
-                    output = "The game ends.";
                     break;
 
                 default:
