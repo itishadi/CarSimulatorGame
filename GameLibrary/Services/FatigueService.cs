@@ -32,7 +32,7 @@ namespace GameLibrary.Services
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("*--------------------------------------------------------------*");
-                Console.WriteLine("\nThe driver is tired and hungry take a break.\n");
+                Console.WriteLine("\nThe driver is tired take a break.\n");
                 Console.WriteLine("*--------------------------------------------------------------*");
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.White;
