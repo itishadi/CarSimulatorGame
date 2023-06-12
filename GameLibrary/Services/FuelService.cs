@@ -28,7 +28,7 @@ namespace GameLibrary.Services
         {
             if (car.Fuel <= 0)
             {
-                //Console.Clear();
+                Console.Clear();
                 Console.WriteLine("*--------------------------------------------------------------*");
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -49,7 +49,7 @@ namespace GameLibrary.Services
                 }
                 else
                 {
-                    isRunning = false;
+                    Environment.Exit(0);
                 }
             }
             else if (car.Fuel == 1)
@@ -60,10 +60,6 @@ namespace GameLibrary.Services
                 Console.WriteLine("\nThe fuel level is low. Refuel the car!");
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.White;
-            }
-            else if (input.ToLower() == "7" || input.ToLower() == "End")
-            {
-                isRunning = false;
             }
         }
     }
