@@ -33,7 +33,8 @@ namespace GameLibrary.Services
             Console.WriteLine("1: Start");
             Console.WriteLine("2: End");
             var answer = Console.ReadLine();
-                Console.Clear();
+            car.Fuel = 20;
+            Console.Clear();
             if (answer == "1")
             {
                 await apiService.GetAsync();

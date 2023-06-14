@@ -6,14 +6,12 @@ namespace GameLibrary.Services
     {
         private Driver _driver;
         private Car _car;
-        private HungerService hungerService;
 
       
         public CommandService(Driver driver, Car car)
         {
             _driver = driver;
             _car = car;
-            hungerService = new HungerService(driver);
         }
 
         public string ExecuteCommand(string input)
@@ -28,7 +26,6 @@ namespace GameLibrary.Services
                         _car.Fuel -= 1;
                         TurnLeft();
                         _driver.IncreaseFatigue();
-                        //hungerService.IncreaseHunger();
                     }
                     break;
 
@@ -38,7 +35,6 @@ namespace GameLibrary.Services
                         _car.Fuel -= 1;
                         TurnRight();
                         _driver.IncreaseFatigue();
-                        //hungerService.IncreaseHunger();
                     }
                     break;
 
@@ -48,7 +44,6 @@ namespace GameLibrary.Services
                         _car.Fuel -= 1;
 
                         _driver.IncreaseFatigue();
-                        //hungerService.IncreaseHunger();
                     }
                     break;
 
@@ -58,13 +53,11 @@ namespace GameLibrary.Services
                         _car.Fuel -= 1;
 
                         _driver.IncreaseFatigue();
-                        //hungerService.IncreaseHunger();
                     }
                     break;
 
                 case "5":
                     _driver.Fatigue = 1;
-                    //hungerService.ResetHunger();
                     break;
 
                 case "6":
@@ -73,7 +66,6 @@ namespace GameLibrary.Services
                         output += $"\nThe direction of the car: {_car.Direction}" +
                         $"\nGas: {_car.Fuel}/20 " +
                         $"\nDriver fatigue: {_driver.Fatigue}/10 " 
-                        //$"\nDriver's hunger: {_driver.Hunger}"
                         );
                     break;
 
@@ -88,8 +80,6 @@ namespace GameLibrary.Services
             output += $"\nThe direction of the car: {_car.Direction}";
             output += $"\nGas: {_car.Fuel}/20";
             output += $"\nDriver fatigue: {_driver.Fatigue}/10";
-            //output += $"\nDriver's hunger: {_driver.Hunger}";
-
             return output;
         }
 

@@ -1,9 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿    using System.Threading.Tasks;
 
-namespace GameLibrary.Services
-{
-    public interface IMenuService
+    namespace GameLibrary.Services
     {
-        Task Start();
+        public interface IMenuService
+        {
+            Task Start();
+        }
     }
-}

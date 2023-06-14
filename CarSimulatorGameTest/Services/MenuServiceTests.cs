@@ -4,54 +4,46 @@ using System.Threading.Tasks;
 using GameLibrary.Models;
 using GameLibrary.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
 namespace CarSimulatorGameTest.Services
 {
     [TestClass]
     public class MenuServiceTests
     {
-        private MenuService _sut;
-        private Driver _driver;
-        private Car _car;
-        private CommandService _commandService;
-        private ApiService _apiService;
-        private FatigueService _fatigueService;
-        private FuelService _fuelService;
-
-        [TestInitialize]
-        public void Initialize()
-        {
-            _driver = new Driver();
-            _car = new Car();
-            _commandService = new CommandService(_driver, _car);
-            _apiService = new ApiService();
-            _fatigueService = new FatigueService(_driver, _car, _commandService, _apiService);
-            _fuelService = new FuelService(_driver, _car, _commandService, _apiService);
-            _sut = new MenuService(_driver, _car, _commandService, _apiService, _fatigueService, _fuelService);
-        }
-
         //[TestMethod]
-        //public async Task Start_InputIs1_ExecutesStartMenu()
+        //public async Task Start_Should_Display_TurnLeftOption()
         //{
         //    // Arrange
-        //    string userInput = "1";
-        //    string expectedOutput = "Welcome to Car Simulator!"; // Adjust the expected output based on the expected behavior
+        //    var driverMock = new Mock<Driver>();
+        //    var carMock = new Mock<Car>();
+        //    var commandServiceMock = new Mock<CommandService>();
+        //    var apiServiceMock = new Mock<ApiService>();
+        //    var fatigueServiceMock = new Mock<FatigueService>();
+        //    var fuelServiceMock = new Mock<FuelService>();
 
-        //    using (StringReader sr = new StringReader(userInput))
-        //    using (StringWriter sw = new StringWriter())
+        //    var output = new StringWriter();
+        //    var menuService = new MenuService(driverMock.Object, carMock.Object, commandServiceMock.Object,
+        //        apiServiceMock.Object, fatigueServiceMock.Object, fuelServiceMock.Object);
+
+        //    var userInput = "1"; // Simulate user input: Start
+
+        //    // Create a TextReader to simulate the user input
+        //    using (var input = new StringReader(userInput))
+        //    using (output)
         //    {
-        //        Console.SetIn(sr);
-        //        Console.SetOut(sw);
+        //        Console.SetIn(input);
+        //        Console.SetOut(output);
 
         //        // Act
-        //        await _sut.Start();
+        //        await menuService.Start();
 
         //        // Assert
-        //        string consoleOutput = sw.ToString();
-        //        Assert.IsTrue(consoleOutput.Contains(expectedOutput));
-        //        // You can add more assertions to verify the behavior and output of the MenuService
+        //        // Verify that "1: Turn left" option is displayed in the menu
+        //        StringAssert.Contains(output.ToString(), "1: Turn left");
         //    }
         //}
+
 
 
 

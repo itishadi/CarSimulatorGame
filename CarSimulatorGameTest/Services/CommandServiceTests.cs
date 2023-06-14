@@ -42,6 +42,7 @@ namespace CarSimulatorGameTest.Services
             Assert.IsTrue(result.Contains($"{_car.Fuel}/20"));
             Assert.IsTrue(result.Contains($"{_driver.Fatigue}/10"));
         }
+
         [TestMethod]
         public void ExecuteCommand_InputIs2_CarTurnsRightAndDriverFatigueIncreases()
         {
@@ -63,6 +64,7 @@ namespace CarSimulatorGameTest.Services
             Assert.IsTrue(result.Contains($"{_car.Fuel}/20"));
             Assert.IsTrue(result.Contains($"{_driver.Fatigue}/10"));
         }
+
 
         [TestMethod]
         public void ExecuteCommand_InputIs3_CarMovesForwardAndDriverFatigueIncreases()
@@ -261,6 +263,5 @@ namespace CarSimulatorGameTest.Services
             // Assert
             Assert.AreEqual("Southward", _car.Direction);
         }
-
     }
 }

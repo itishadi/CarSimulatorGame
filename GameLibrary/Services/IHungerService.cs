@@ -11,4 +11,5 @@ namespace GameLibrary.Services
         void IncreaseHunger();
         void ResetHunger();
     }
+
 }

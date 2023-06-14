@@ -1,9 +1,9 @@
-﻿using GameLibrary.Models;
+﻿//using GameLibrary.Models;
 
-namespace GameLibrary.Services
-{
-    public interface ICarSimulatorService
-    {
-        Driver GetDriver();
-    }
-}
+//namespace GameLibrary.Services
+//{
+//    public interface ICarSimulatorService
+//    {
+//        Driver GetDriver();
+//    }
+//}
