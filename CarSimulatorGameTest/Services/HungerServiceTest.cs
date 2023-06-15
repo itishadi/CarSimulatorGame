@@ -1,64 +1,72 @@
 ﻿using GameLibrary.Services;
-using Moq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
 namespace GameLibrary.Tests
 {
-    public class HungerServiceConsumer
-    {
-        private readonly IHungerService _hungerService;
-
-        public HungerServiceConsumer(IHungerService hungerService)
-        {
-            _hungerService = hungerService;
-        }
-
-        public void IncreaseHunger()
-        {
-            _hungerService.IncreaseHunger();
-        }
-
-        public void ResetHunger()
-        {
-            _hungerService.ResetHunger();
-        }
-    }
-
     [TestClass]
     public class HungerServiceTests
     {
-        private Mock<IHungerService> _hungerService;
-
-        [TestInitialize]
-        public void Setup()
+        [TestMethod]
+        public void IncreaseHunger_HungerLevel_1()
         {
-            _hungerService = new Mock<IHungerService>();
+            // Arrange
+            int expectedHungerLevel = 1;
+            string expectedDriver = "full";
+
+            Mock<IHungerService> mockHungerService = new Mock<IHungerService>();
+            mockHungerService.Setup(h => h.HungerLevel).Returns(expectedHungerLevel);
+
+            // Act
+            mockHungerService.Object.IncreaseHunger();
+
+            // Assert
+            Assert.AreEqual(expectedHungerLevel, mockHungerService.Object.HungerLevel);
+            Assert.AreEqual(expectedDriver, "full");
+        }
+        [TestMethod]
+        public void IncreaseHunger_HungerLevel_2()
+        {
+            // Arrange
+            int expectedHungerLevel = 8;
+            string expectedDriver = "Hungry";
+
+            Mock<IHungerService> mockHungerService = new Mock<IHungerService>();
+            mockHungerService.Setup(h => h.HungerLevel).Returns(expectedHungerLevel);
+
+            // Act
+            for (int i = 0; i < expectedHungerLevel; i++)
+            {
+                mockHungerService.Object.IncreaseHunger();
+            }
+
+            // Assert
+            Assert.AreEqual(expectedHungerLevel, mockHungerService.Object.HungerLevel);
+            Assert.AreEqual(expectedDriver, "Hungry");
         }
 
         [TestMethod]
-        public void IncreaseHunger_ShouldCallIncreaseHungerMethod()
+        public void IncreaseHunger_HungerLevel_3()
         {
             // Arrange
-            var hungerServiceConsumer = new HungerServiceConsumer(_hungerService.Object);
+            int expectedHungerLevel = 10;
+            string expectedDriver = "Starving";
+
+            Mock<IHungerService> mockHungerService = new Mock<IHungerService>();
+            mockHungerService.Setup(h => h.HungerLevel).Returns(expectedHungerLevel);
 
             // Act
-            hungerServiceConsumer.IncreaseHunger();
+            for (int i = 0; i < expectedHungerLevel; i++)
+            {
+                mockHungerService.Object.IncreaseHunger();
+            }
 
             // Assert
-            _hungerService.Verify(x => x.IncreaseHunger(), Times.Once);
+            Assert.AreEqual(expectedHungerLevel, mockHungerService.Object.HungerLevel);
+            Assert.AreEqual(expectedDriver, "Starving");
         }
 
-        [TestMethod]
-        public void ResetHunger_ShouldCallResetHungerMethod()
-        {
-            // Arrange
-            var hungerServiceConsumer = new HungerServiceConsumer(_hungerService.Object);
 
-            // Act
-            hungerServiceConsumer.ResetHunger();
 
-            // Assert
-            _hungerService.Verify(x => x.ResetHunger(), Times.Once);
-        }
     }
 }

@@ -1,17 +1,17 @@
 ﻿using GameLibrary.Models;
 
-namespace GameLibrary.Services
-{
-    public class HungerService : IHungerService
-    {
-        public void IncreaseHunger()
-        {
-        }
-        public void ResetHunger()
-        {
-        }
-    }
-}
+//namespace GameLibrary.Services
+//{
+//    public class HungerService : IHungerService
+//    {
+//        public void IncreaseHunger()
+//        {
+//        }
+//        public void ResetHunger()
+//        {
+//        }
+//    }
+//}
 
 //using GameLibrary.Models;
 

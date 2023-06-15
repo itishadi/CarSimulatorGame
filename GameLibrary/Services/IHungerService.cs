@@ -9,7 +9,6 @@ namespace GameLibrary.Services
     public interface IHungerService
     {
         void IncreaseHunger();
-        void ResetHunger();
+        int HungerLevel { get; }
     }
-
 }
