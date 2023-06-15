@@ -65,8 +65,5 @@ namespace GameLibrary.Tests
             Assert.AreEqual(expectedHungerLevel, mockHungerService.Object.HungerLevel);
             Assert.AreEqual(expectedDriver, "Starving");
         }
-
-
-
     }
 }
