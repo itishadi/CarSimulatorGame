@@ -28,55 +28,13 @@ namespace GameLibrary.Services
         {
             if (driver.Fatigue > 10)
             {
-                //Console.Clear();
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("*--------------------------------------------------------------*");
                 Console.WriteLine("\nThe driver is tired take a break.\n");
                 Console.WriteLine("*--------------------------------------------------------------*");
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.ForegroundColor = ConsoleColor.White;
-                //Console.Clear();
-                //Console.WriteLine("\n1: Take a break");
-                //Console.WriteLine("2: Or press whatever you want and then ENTER to exit!");
-                //Console.WriteLine("*--------------------------------------------------------------*");
-
-                //Console.Write("\nEnter a command: ");
-                //string fatigueCommand = Console.ReadLine();
-                //Console.Clear();
-
-
-                //if (fatigueCommand == "1")
-                //{
-                //    commandService.ExecuteCommand("5");
-                //}
-                //else
-                //{
-                //    isRunning = false;
-                //}
+                Console.ResetColor();
             }
-            //else if (driver.Fatigue == 7 || driver.Fatigue == 8)
-            //{
-            //    Console.WriteLine("*--------------------------------------------------------------*");
-            //    Console.BackgroundColor = ConsoleColor.Black;
-            //    Console.ForegroundColor = ConsoleColor.Red;
-            //    Console.WriteLine("\nThe driver is hungry Take a break!");
-            //    Console.BackgroundColor = ConsoleColor.Black;
-            //    Console.ForegroundColor = ConsoleColor.White;
-            //}
-            //else if (driver.Fatigue == 9)
-            //{
-            //    Console.WriteLine("*--------------------------------------------------------------*");
-            //    Console.BackgroundColor = ConsoleColor.Black;
-            //    Console.ForegroundColor = ConsoleColor.Red;
-            //    Console.WriteLine("\nThe driver is tired and hungry. Take a break!");
-            //    Console.BackgroundColor = ConsoleColor.Black;
-            //    Console.ForegroundColor = ConsoleColor.White;
-            //}
-            //else if (input.ToLower() == "7" || input.ToLower() == "End")
-            //{
-            //    isRunning = false;
-            //}
         }
     }
 }

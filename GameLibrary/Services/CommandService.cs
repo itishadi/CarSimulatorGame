@@ -17,6 +17,7 @@ namespace GameLibrary.Services
         public string ExecuteCommand(string input)
         {
             string output = "";
+            string output1 = "";
 
             switch (input.ToLower())
             {
@@ -63,7 +64,7 @@ namespace GameLibrary.Services
                 case "6":
                     _car.Fuel = 20;
                     Console.WriteLine(
-                        output += $"\nThe direction of the car: {_car.Direction}" +
+                        output1 += $"\nThe direction of the car: {_car.Direction}" +
                         $"\nGas: {_car.Fuel}/20 " +
                         $"\nDriver fatigue: {_driver.Fatigue}/10 " 
                         );
@@ -76,7 +77,6 @@ namespace GameLibrary.Services
                     output = "Invalid command. Try again.";
                     break;
             }
-
             output += $"\nThe direction of the car: {_car.Direction}";
             output += $"\nGas: {_car.Fuel}/20";
             output += $"\nDriver fatigue: {_driver.Fatigue}/10";

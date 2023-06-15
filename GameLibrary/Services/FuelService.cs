@@ -33,8 +33,7 @@ namespace GameLibrary.Services
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("\nThe car does not have enough gas.\n");
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.ForegroundColor = ConsoleColor.White;
+                Console.ResetColor();
                 Console.WriteLine("*--------------------------------------------------------------*");
                 Console.WriteLine("\n1: Refuel");
                 Console.WriteLine("2: Or press whatever you want and then ENTER to exit!\n");
@@ -58,8 +57,7 @@ namespace GameLibrary.Services
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("\nThe fuel level is low. Refuel the car!");
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.ForegroundColor = ConsoleColor.White;
+                Console.ResetColor();
             }
         }
     }
