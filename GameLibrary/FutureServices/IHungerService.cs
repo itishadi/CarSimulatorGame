@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameLibrary.Services
+namespace GameLibrary.FutureServices
 {
     public interface IHungerService
     {

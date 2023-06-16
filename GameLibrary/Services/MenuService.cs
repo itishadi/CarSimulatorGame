@@ -10,21 +10,19 @@ namespace GameLibrary.Services
     public class MenuService : IMenuService
     {
         public bool isRunning { get; set; } = true;
-        private Driver driver;
-        private Car car;
-        private CommandService commandService;
-        private ApiService apiService;
-        private FuelService fuelService;
-        private FatigueService fatigueService;
+        private Car _car;
+        private CommandService _commandService;
+        private ApiService _apiService;
+        private FuelService _fuelService;
+        private FatigueService _fatigueService;
 
         public MenuService(Driver driver, Car car, CommandService commandService, ApiService apiService, FatigueService fatigueService, FuelService fuelService)
         {
-            this.driver = driver;
-            this.car = car;
-            this.commandService = commandService;
-            this.apiService = apiService;
-            this.fatigueService = fatigueService;
-            this.fuelService = fuelService;
+            _car = car;
+            _commandService = commandService;
+            _apiService = apiService;
+            _fatigueService = fatigueService;
+            _fuelService = fuelService;
         }
         public async Task Start()
         {
@@ -33,11 +31,11 @@ namespace GameLibrary.Services
             Console.WriteLine("1: Start");
             Console.WriteLine("2: End");
             var answer = Console.ReadLine();
-            car.Fuel = 20;
+            _car.Fuel = 20;
             Console.Clear();
             if (answer == "1")
             {
-                await apiService.GetAsync();
+                await _apiService.GetAsync();
 
                 while (isRunning)
                 {
@@ -53,12 +51,12 @@ namespace GameLibrary.Services
                     Console.Write("Enter a command: ");
 
                     string input = Console.ReadLine();
-                    string output = commandService.ExecuteCommand(input);
+                    string output = _commandService.ExecuteCommand(input);
 
                     Console.Clear();
                     Console.WriteLine(output);
-                    fatigueService.Fatigue(input);
-                    fuelService.Fuel(input);
+                    _fatigueService.Fatigue(input);
+                    _fuelService.Fuel(input);
                     if (input == "7")
                     {
                         await Start();

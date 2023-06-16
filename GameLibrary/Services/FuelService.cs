@@ -10,23 +10,18 @@ namespace GameLibrary.Services
     public class FuelService : IFuelService
     {
 
-        private Driver driver;
-        private Car car;
-        private CommandService commandService;
-        private ApiService apiService;
-        private bool isRunning;
+        private Car _car;
+        private CommandService _commandService;
 
         public FuelService(Driver driver, Car car, CommandService commandService, ApiService apiService)
         {
-            this.driver = driver;
-            this.car = car;
-            this.commandService = commandService;
-            this.apiService = apiService;
+            _car = car;
+            _commandService = commandService;
         }
 
         public void Fuel(string input)
         {
-            if (car.Fuel <= 0)
+            if (_car.Fuel <= 0)
             {
                 Console.Clear();
                 Console.WriteLine("*--------------------------------------------------------------*");
@@ -44,14 +39,14 @@ namespace GameLibrary.Services
 
                 if (fuelCommand == "1")
                 {
-                    commandService.ExecuteCommand("6");
+                    _commandService.ExecuteCommand("6");
                 }
                 else
                 {
                     Environment.Exit(0);
                 }
             }
-            else if (car.Fuel == 1)
+            else if (_car.Fuel == 1)
             {
                 Console.WriteLine("*--------------------------------------------------------------*");
                 Console.BackgroundColor = ConsoleColor.Black;

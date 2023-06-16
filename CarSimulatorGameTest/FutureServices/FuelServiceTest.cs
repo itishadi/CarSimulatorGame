@@ -5,7 +5,7 @@ using Moq;
 using System;
 using System.IO;
 
-namespace CarSimulatorGameTest.ServicesMock
+namespace CarSimulatorGameTest.FutureServices
 {
     [TestClass]
     public class FuelServiceTest

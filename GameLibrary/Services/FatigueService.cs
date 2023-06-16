@@ -9,24 +9,17 @@ namespace GameLibrary.Services
 {
     public class FatigueService : IFatigueService
     {
-        private Driver driver;
-        private Car car;
-        private CommandService commandService;
-        private ApiService apiService;
-        private bool isRunning;
+        private Driver _driver;
 
         public FatigueService(Driver driver, Car car, CommandService commandService, ApiService apiService)
         {
-            this.driver = driver;
-            this.car = car;
-            this.commandService = commandService;
-            this.apiService = apiService;
+            _driver = driver;
         }
 
 
         public void Fatigue(string input)
         {
-            if (driver.Fatigue > 10)
+            if (_driver.Fatigue > 10)
             {
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.Red;

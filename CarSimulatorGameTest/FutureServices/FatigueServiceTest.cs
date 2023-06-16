@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
-namespace CarSimulatorGameTest.ServicesMock
+namespace CarSimulatorGameTest.FutureServices
 {
     [TestClass]
     public class FatigueServiceTest

@@ -1,8 +1,8 @@
-﻿using GameLibrary.Services;
+﻿using GameLibrary.FutureServices;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
-namespace CarSimulatorGameTest.ServicesMock
+namespace CarSimulatorGameTest.FutureServices
 {
     [TestClass]
     public class HungerServiceTests
