@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
-namespace GameLibrary.Tests
+namespace CarSimulatorGameTest.ServicesMock
 {
     [TestClass]
     public class HungerServiceTests

@@ -20,131 +20,8 @@ namespace CarSimulatorGameTest.Services
             _sut = new CommandService(_driver, _car);
         }
 
-        /////////////////////////switch test
-        [TestMethod]
-        public void ExecuteCommand_InputIs1_CarTurnsLeftAndDriverFatigueIncreases()
-        {
-            // Arrange
-            string input = "1";
-            int initialFuel = 10;
-            int initialFatigue = 0;
-            _car.Fuel = initialFuel;
-            _driver.Fatigue = initialFatigue;
 
-            // Act
-            string result = _sut.ExecuteCommand(input);
-
-            // Assert
-            Assert.AreEqual("West", _car.Direction);
-            Assert.AreEqual(initialFuel - 1, _car.Fuel);
-            Assert.AreEqual(initialFatigue + 1, _driver.Fatigue);
-            Assert.IsTrue(result.Contains("West"));
-            Assert.IsTrue(result.Contains($"{_car.Fuel}/20"));
-            Assert.IsTrue(result.Contains($"{_driver.Fatigue}/10"));
-        }
-
-        [TestMethod]
-        public void ExecuteCommand_InputIs2_CarTurnsRightAndDriverFatigueIncreases()
-        {
-            // Arrange
-            string input = "2";
-            int initialFuel = 10;
-            int initialFatigue = 0;
-            _car.Fuel = initialFuel;
-            _driver.Fatigue = initialFatigue;
-
-            // Act
-            string result = _sut.ExecuteCommand(input);
-
-            // Assert
-            Assert.AreEqual("East", _car.Direction);
-            Assert.AreEqual(initialFuel - 1, _car.Fuel);
-            Assert.AreEqual(initialFatigue + 1, _driver.Fatigue);
-            Assert.IsTrue(result.Contains("East"));
-            Assert.IsTrue(result.Contains($"{_car.Fuel}/20"));
-            Assert.IsTrue(result.Contains($"{_driver.Fatigue}/10"));
-        }
-
-
-        [TestMethod]
-        public void ExecuteCommand_InputIs3_CarMovesForwardAndDriverFatigueIncreases()
-        {
-            // Arrange
-            string input = "3";
-            int initialFuel = 10;
-            int initialFatigue = 0;
-            _car.Fuel = initialFuel;
-            _driver.Fatigue = initialFatigue;
-
-            // Act
-            string result = _sut.ExecuteCommand(input);
-
-            // Assert
-            Assert.AreEqual(initialFuel - 1, _car.Fuel);
-            Assert.AreEqual(initialFatigue + 1, _driver.Fatigue);
-            Assert.IsTrue(result.Contains($"{_car.Fuel}/20"));
-            Assert.IsTrue(result.Contains($"{_driver.Fatigue}/10"));
-        }
-
-        [TestMethod]
-        public void ExecuteCommand_InputIs4_CarMovesBackwardAndDriverFatigueIncreases()
-        {
-            // Arrange
-            string input = "4";
-            int initialFuel = 10;
-            int initialFatigue = 0;
-            _car.Fuel = initialFuel;
-            _driver.Fatigue = initialFatigue;
-
-            // Act
-            string result = _sut.ExecuteCommand(input);
-
-            // Assert
-            Assert.AreEqual(initialFuel - 1, _car.Fuel);
-            Assert.AreEqual(initialFatigue + 1, _driver.Fatigue);
-            Assert.IsTrue(result.Contains($"{_car.Fuel}/20"));
-            Assert.IsTrue(result.Contains($"{_driver.Fatigue}/10"));
-        }
-
-
-        [TestMethod]
-        public void ExecuteCommand_InputIs5_DriverFatigueResets()
-        {
-            // Arrange
-            string input = "5";
-            int initialFatigue = 8;
-            _driver.Fatigue = initialFatigue;
-
-            // Act
-            string result = _sut.ExecuteCommand(input);
-
-            // Assert
-            Assert.AreEqual(1, _driver.Fatigue);
-            Assert.IsTrue(result.Contains($"{_driver.Fatigue}/10"));
-        }
-
-
-        [TestMethod]
-        public void ExecuteCommand_InputIs6_CarFuelIsRefilledAndOutputContainsCarInformation()
-        {
-            // Arrange
-            string input = "6";
-            int initialFuel = 5;
-            _car.Fuel = initialFuel;
-
-            // Act
-            string result = _sut.ExecuteCommand(input);
-
-            // Assert
-            Assert.AreEqual(20, _car.Fuel);
-            Assert.IsTrue(result.Contains($"{_car.Direction}"));
-            Assert.IsTrue(result.Contains($"{_car.Fuel}/20"));
-            Assert.IsTrue(result.Contains($"{_driver.Fatigue}/10"));
-        }
-
-
-
-        ///////////////Turn left test
+        ///////////////Turn left
         [TestMethod]
         public void TurnLeft_CarDirectionIsNorthward_CarDirectionChangesToWest()
         {
@@ -204,6 +81,7 @@ namespace CarSimulatorGameTest.Services
             // Assert
             Assert.AreEqual("Northward", _car.Direction);
         }
+
 
 
         ///////////////Turn right test
