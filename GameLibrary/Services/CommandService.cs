@@ -7,7 +7,7 @@ namespace GameLibrary.Services
         private Driver _driver;
         private Car _car;
 
-      
+
         public CommandService(Driver driver, Car car)
         {
             _driver = driver;
@@ -66,7 +66,7 @@ namespace GameLibrary.Services
                     Console.WriteLine(
                         output1 += $"\nThe direction of the car: {_car.Direction}" +
                         $"\nGas: {_car.Fuel}/20 " +
-                        $"\nDriver fatigue: {_driver.Fatigue}/10 " 
+                        $"\nDriver fatigue: {_driver.Fatigue}/10 "
                         );
                     break;
 

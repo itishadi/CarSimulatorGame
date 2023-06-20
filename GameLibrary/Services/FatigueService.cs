@@ -16,7 +16,6 @@ namespace GameLibrary.Services
             _driver = driver;
         }
 
-
         public void Fatigue(string input)
         {
             if (_driver.Fatigue > 10)

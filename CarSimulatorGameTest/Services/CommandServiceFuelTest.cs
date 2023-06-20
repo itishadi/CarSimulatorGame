@@ -23,7 +23,6 @@ namespace CarSimulatorGameTest.Services
             _sut = new CommandService(_driver, _car);
         }
 
-
         [TestMethod]
         public void ExecuteCommand_InputIs1_CarTurnsLeftAndDriverFuelDecreases()
         {

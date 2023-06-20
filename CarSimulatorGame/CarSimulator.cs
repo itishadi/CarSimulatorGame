@@ -12,7 +12,6 @@ public class CarSimulator
     private FatigueService fatigueService;
     private FuelService fuelService;
     private IMenuService menuService;
-
     public CarSimulator()
     {
         driver = new Driver();
@@ -23,7 +22,6 @@ public class CarSimulator
         fatigueService = new FatigueService(driver, car, commandService, apiService);
         menuService = new MenuService(driver, car, commandService, apiService, fatigueService, fuelService);
     }
-
     public async Task StartMenu()
     {
         await menuService.Start();

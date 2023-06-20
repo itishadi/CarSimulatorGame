@@ -20,7 +20,6 @@ namespace CarSimulatorGameTest.Services
             _sut = new CommandService(_driver, _car);
         }
 
-
         ///////////////Turn left
         [TestMethod]
         public void TurnLeft_CarDirectionIsNorthward_CarDirectionChangesToWest()
@@ -81,8 +80,6 @@ namespace CarSimulatorGameTest.Services
             // Assert
             Assert.AreEqual("Northward", _car.Direction);
         }
-
-
 
         ///////////////Turn right test
         [TestMethod]
