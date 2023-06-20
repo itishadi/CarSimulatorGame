@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameLibrary", "GameLibrary\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarSimulatorGameTest", "CarSimulatorGameTest\CarSimulatorGameTest.csproj", "{9C521B73-4E90-4E2B-9BBB-D5A7BBC202DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitCarSimulatorGame", "NUnitCarSimulatorGame\NUnitCarSimulatorGame.csproj", "{09BE8909-15BA-4BD3-905D-A997B33F2B4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{9C521B73-4E90-4E2B-9BBB-D5A7BBC202DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C521B73-4E90-4E2B-9BBB-D5A7BBC202DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C521B73-4E90-4E2B-9BBB-D5A7BBC202DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09BE8909-15BA-4BD3-905D-A997B33F2B4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09BE8909-15BA-4BD3-905D-A997B33F2B4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09BE8909-15BA-4BD3-905D-A997B33F2B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09BE8909-15BA-4BD3-905D-A997B33F2B4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
