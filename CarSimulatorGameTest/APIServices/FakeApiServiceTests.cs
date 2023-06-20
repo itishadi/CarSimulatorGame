@@ -4,15 +4,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace GameLibrary.Tests.APIModels
 {
-
     [TestClass]
     public class ApiResponseTests
     {
-
         [TestMethod]
         public void ApiResponse_ReturnsNonNullNameAndAge_WhenSet()
         {
-
             // Arrange
             var apiResponse = new ApiResponse();
             var result = new Result();
@@ -20,11 +17,9 @@ namespace GameLibrary.Tests.APIModels
             result.dob = new Dob { age = 30 };
             apiResponse.results = new[] { result };
 
-
             // Act
             var name = apiResponse.results[0].name;
             var age = apiResponse.results[0].dob.age;
-
 
             // Assert
             Assert.IsNotNull(name);
@@ -33,9 +28,6 @@ namespace GameLibrary.Tests.APIModels
             Assert.IsFalse(string.IsNullOrEmpty(name.first));
             Assert.IsFalse(string.IsNullOrEmpty(name.last));
             Assert.IsTrue(age > 0);
-
         }
-
     }
-
 }
